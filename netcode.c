@@ -5140,7 +5140,7 @@ int netcode_generate_connect_token( int num_server_addresses,
 
 // ---------------------------------------------------------------
 
-#if __APPLE__
+#if NETCODE_PLATFORM == NETCODE_PLATFORM_MAC
 
 // MacOS
 
@@ -5171,7 +5171,7 @@ double netcode_time()
     return ( (double) ( current - start ) ) * ( (double) timebase_info.numer ) / ( (double) timebase_info.denom ) / 1000000000.0;
 }
 
-#elif __linux
+#elif NETCODE_PLATFORM == NETCODE_PLATFORM_UNIX
 
 // linux
 
@@ -5201,7 +5201,7 @@ double netcode_time()
     return current - start;
 }
 
-#elif defined( _WIN32 )
+#elif NETCODE_PLATFORM == NETCODE_PLATFORM_WINDOWS
 
 // windows
 
